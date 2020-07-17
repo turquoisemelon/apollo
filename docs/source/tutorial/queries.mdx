@@ -20,7 +20,7 @@ The `useQuery` hook leverages React's [Hooks API](https://reactjs.org/docs/hooks
 
 <Disclaimer />
 
-To create a component with `useQuery`, import `useQuery` from `@apollo/react-hooks`, pass your query wrapped with `gql` in as the first parameter, then wire your component up to use the `loading`, `data`, and `error` properties on the result object to render UI in your app.
+To create a component with `useQuery`, import `useQuery` from `@apollo/client`, pass your query wrapped with `gql` in as the first parameter, then wire your component up to use the `loading`, `data`, and `error` properties on the result object to render UI in your app.
 
 First, we're going to build a GraphQL query that fetches a list of launches. We're also going to import some components that we will need in the next step. Navigate to `src/pages/launches.tsx` to get started and copy the code below into the file.
 
@@ -28,8 +28,7 @@ First, we're going to build a GraphQL query that fetches a list of launches. We'
 
 ```tsx:title=src/pages/launches.tsx
 import React, { Fragment } from 'react'; // preserve-line
-import { useQuery } from '@apollo/react-hooks'; // preserve-line
-import gql from 'graphql-tag';
+import { gql, useQuery } from '@apollo/client'; // preserve-line
 
 import { LaunchTile, Header, Button, Loading } from '../components'; // preserve-line
 import { RouteComponentProps } from '@reach/router';
@@ -214,8 +213,7 @@ Let's navigate to `src/pages/launch.tsx` to build out our detail page. First, we
 
 ```tsx:title=src/pages/launch.tsx
 import React, { Fragment } from 'react'; // preserve-line
-import { useQuery } from '@apollo/react-hooks'; // preserve-line
-import gql from 'graphql-tag'; 
+import { gql, useQuery } from '@apollo/client'; // preserve-line
 
 import { Loading, Header, LaunchDetail } from '../components'; // preserve-line
 import { ActionButton } from '../containers'; // preserve-line
@@ -372,8 +370,7 @@ First, let's navigate to `src/pages/profile.tsx` and write our query:
 
 ```tsx:title=src/pages/profile.tsx
 import React, { Fragment } from 'react'; // preserve-line
-import { useQuery } from '@apollo/react-hooks'; // preserve-line
-import gql from 'graphql-tag'; // preserve-line
+import { gql, useQuery } from '@apollo/client'; // preserve-line
 
 import { Loading, Header, LaunchTile } from '../components'; // preserve-line
 import { LAUNCH_TILE_DATA } from './launches'; // preserve-line
